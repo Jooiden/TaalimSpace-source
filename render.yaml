@@ -1,0 +1,26 @@
+# Free hackathon preview: media is temporary until persistent storage is attached.
+services:
+  - type: web
+    name: taalimspace
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: FRONTEND_URL
+        sync: false
+      - key: CORS_ORIGINS
+        sync: false
+      - key: COOKIE_SECURE
+        value: "true"
+      - key: DEMO_MODE
+        value: "false"
+      - key: PRESENTATION_ENABLED
+        value: "false"
+      - key: MEDIA_DIR
+        value: /app/.media
